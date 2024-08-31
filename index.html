@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Me perdonas?</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f7f6dd;
+      background-image: url("https://static.vecteezy.com/system/resources/previews/023/353/862/non_2x/cute-cartoon-giraffe-illustration-free-png.png");
+      background-repeat: repeat;
+    }
+    #mensaje {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="text-center">
+    <h1>¿Me perdonas?</h1>
+    <div id="mensaje" class="mt-4"></div>
+    <div class="mt-3">
+      <button id="btnSi" class="btn btn-success">Sí</button>
+      <button id="btnNo" class="btn btn-danger">No</button>
+    </div>
+  </div>
+
+  <script>
+    const btnNo = document.getElementById('btnNo');
+    const mensaje = document.getElementById('mensaje');
+    const respuestas = [
+      "Se que no tienes porque, pero en serio lo siento",
+      "¡Te prometo que no volverá a pasar! 🥺",
+      "Sabes que lo siento mucho... 💔",
+      "Dame otra oportunidad, por favor. 😢"
+    ];
+    
+    btnNo.addEventListener('click', () => {
+      const randomRespuesta = respuestas[Math.floor(Math.random() * respuestas.length)];
+      mensaje.innerHTML = `<p class="alert alert-warning">${randomRespuesta}</p>`;
+    });
+
+    document.getElementById('btnSi').addEventListener('click', () => {
+      mensaje.innerHTML = `<p class="alert alert-success">¡Gracias por perdonarme! 🥰</p>`;
+    });
+  </script>
+</body>
+</html>
